@@ -40,19 +40,19 @@ describe Code do
 
   describe 'check_extension' do
     before :each do
-      code = Code.new(sample_file)
+      @code = Code.new(sample_file)
     end
 
     it '拡張子の前だけにdotがある場合' do
-      code.path = "/tmp/sample/sampe.php"
-      code.check_extension
-      expect(code.extension).to eq("php")
+      @code.path = "/tmp/sample/sampe.php"
+      @code.check_extension
+      expect(@code.extension).to eq("php")
     end
 
     it '拡張子の以外にdotがある場合' do
-      code.path = "/tmp/sample.ruby/sampe.php"
-      code.check_extension
-      expect(code.extension).to eq("php")
+      @code.path = "/tmp/sample.ruby/sampe.php"
+      @code.check_extension
+      expect(@code.extension).to eq("php")
     end
 
   end
