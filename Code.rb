@@ -1,7 +1,7 @@
 # リファレンス取得のためのコードオブジェクト
 
 class Code
-  attr_accessor :path, :text
+  attr_accessor :path, :text, :extension
 
   @text = ""
 
@@ -22,6 +22,14 @@ class Code
     file_pointer.each do |fp|
       @text << fp
     end
+  end
+
+  #== ファイル読み込みメソッド
+  #
+  # @pathのファイルの拡張子を@extensionに保存
+  #
+  def check_extension
+    @extension = @path.scan(/\.([^\.]*)$/)[0][0]
   end
 
 end
