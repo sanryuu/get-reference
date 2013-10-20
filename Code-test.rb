@@ -19,10 +19,11 @@ describe Code do
       code = Code.new(sample_file)
       expect(code.path).to eq(sample_file)
     end
+  end
 
-    it "ファイルの読み込みまで作成" do
+  describe 'read_file' do
+    it "ファイルの読み込みの確認" do
 
-      code = Code.new(sample_file)
       file_pointer = File.open(sample_file)
       file_text = ""
       file_pointer.each do |fp|
@@ -30,10 +31,12 @@ describe Code do
       end
 
       code = Code.new(sample_file)
+      code.path = sample_file
+      code.read_file
 
       expect(code.text).to eq(file_text)
     end
-
   end
+
 
 end
